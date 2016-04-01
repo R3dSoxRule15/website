@@ -1,42 +1,234 @@
-* {
-  margin: 0;
-  padding: 0;
-  -webkit-font-smoothing: antialiased;
+html {
+  box-sizing: border-box;
 }
-html, body {
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+html,
+body,
+#container {
+  width: 100%;
   height: 100%;
   margin: 0;
-  width: 100%;
+  padding: 0;
 }
-body {
-  font: 12px "Monaco", Inconsolata, monospace;
-  background: #000;
-  color: #f8f8f8;
-}
-.terminal {
-  background: transparent;
+
+#container {
   position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+}
+
+.panel,
+.text,
+.bottom,
+#shToggle,
+#write-up > p {
+  -webkit-transition-duration: 0.75s;
+  -moz-transition-duration: 0.75s;
+  -o-transition-duration: 0.75s;
+  transition-duration: 0.75s;
+}
+
+.bottom > a,
+#thalogo path {
+  -webkit-transition-duration: 0.2s;
+  -moz-transition-duration: 0.2s;
+  -o-transition-duration: 0.2s;
+  transition-duration: 0.2s;
+}
+
+.panel,
+.text > h1,
+.text > h3,
+.panel > div {
+  cursor: default;
+}
+
+/* --- PANELS --- */
+
+.panel {
+  position: absolute;
+  top: 0;
+  width: 30%;
+  height: 100%;
+  text-align: center;
+}
+
+#one {
+  background: #111111 url('https://download.unsplash.com/38/awhCbhLqRceCdjcPQUnn_IMG_0249.jpg') center/cover no-repeat;
+  left: 0;
+}
+
+#two {
+  background: #333333 url('https://download.unsplash.com/photo-1418479631014-8cbf89db3431') center/cover no-repeat;
+  left: 10%;
+}
+
+#three {
+  background: #555555 url('https://download.unsplash.com/reserve/unsplash_5288cc8f3571d_1.JPG') center/cover no-repeat;
+  left: 20%;
+}
+
+#four {
+  background: #AAAAAA url('https://download.unsplash.com/42/cA4aKEIPQrerBnp1yGHv_IMG_9534-3-2.jpg') center/cover no-repeat;
+  left: 30%;
+}
+
+#five {
+  background: #000;
+  left: 40%;
+}
+
+#six {
+  background: #FF0000;
   left: 50%;
-  top: 50%;
-  margin-top: -50px;
-  margin-left: -125px;
-  text-shadow: 0px 0px 2px rgba(255, 255, 255, 0.4);
-  width: 250px;
-  font: inherit;
-  border: none;
-  outline: none;
-  color: inherit;
 }
-.dollar:before {
-  content: '$';
-  color: #52a563;
+
+#seven {
+  background: #00FF00;
+  left: 60%;
 }
-.home {
-  color: #e28d47;
-  padding-bottom: 3px;
+
+#eight {
+  background: #0000FF;
+  left: 70%;
 }
-a {
-  font: 12px "Monaco", Inconsolata, monospace;
-  text-decoration: underline;
-  color: #f8f8f8;
+
+#nine {
+  background: #FFFF00;
+  left: 80%;
+}
+
+#ten {
+  background: #FF00FF;
+  left: 90%;
+}
+/* --- TEXT --- */
+
+.text {
+  display: none;
+  position: relative;
+  top: 37%;
+  text-align: left;
+}
+
+.text > h1 {
+  margin: -10px 0 0 0;
+  padding: 0;
+  font-family: 'Droid Serif', serif;
+  font-weight: normal;
+  font-size: 9em;
+  color: #FFFFFF;
+  text-shadow: 2px 2px 12px #555555;
+}
+
+.text > h3 {
+  margin: 0;
+  color: #FFFFFF;
+  font-family: 'Quicksand', sans-serif;
+  font-weight: normal;
+  font-size: 1em;
+  text-transform: uppercase;
+  letter-spacing: 0.7em;
+  opacity: 0.8;
+}
+
+.inactive .text {
+  display: none;
+}
+.active .text {
+  display: inline-block;
+}
+/* --- BOTTOM BUTTON --- */
+
+.bottom {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 34%;
+  height: 12%;
+  text-align: center;
+  border-bottom: 10px solid transparent;
+}
+
+.active .bottom {
+  width: 100%;
+  border-bottom: 10px solid #D8334A;
+}
+
+.inactive .bottom {
+  width: 25%;
+  opacity: 0;
+}
+
+.bottom > a {
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-family: 'Quicksand', sans-serif;
+  font-weight: bold;
+  color: #FFFFFF;
+  height: 80px;
+  padding: 9px 20px 10px;
+  border: 3px solid #D8334A;
+  border-radius: 400px;
+}
+
+.bottom > a:hover {
+  background-color: #D8334A;
+}
+/* --- WRITE-UP --- */
+
+#shToggle {
+  position: absolute;
+  top: 40px;
+  right: 40px;
+  height: 40px;
+  width: 40px;
+  background-color: #FFFFFF;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 10;
+}
+
+#shToggle.ex {
+  -webkit-transform: rotate(225deg);
+  -moz-transform: rotate(225deg);
+  -ms-transform: rotate(225deg);
+  -o-transform: rotate(225deg);
+  transform: rotate(225deg);
+}
+
+#shToggle:before,
+#shToggle:after {
+  content: "";
+  position: absolute;
+  top: 10px;
+  left: 18px;
+  width: 4px;
+  height: 20px;
+  border-radius: 2px;
+  background-color: #D8334A;
+}
+
+#shToggle:after {
+  -webkit-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  -o-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+
+@media (max-width:1200px) {
+  .text > h1 {font-size: 7em;}
+}
+
+@media (max-width:950px) {
+  .text > h1 {font-size: 5em;}
 }
