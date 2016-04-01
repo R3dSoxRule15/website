@@ -59,7 +59,12 @@ body,
   height: 100%;
   text-align: center;
 }
-
+.panel > a {
+  display: block;
+  visibility: hidden;
+  width: 100%;
+  height: 100%;
+}
 #one {
   background: #000000;
   left: 0;
@@ -123,7 +128,7 @@ body,
   padding: 0;
   font-family: 'Droid Serif', serif;
   font-weight: normal;
-  font-size: 9em;
+  font-size: 6em;
   color: #FFFFFF;
   text-shadow: 2px 2px 12px #555555;
 }
@@ -181,47 +186,6 @@ body,
 
 .bottom > a:hover {
   background-color: #D8334A;
-}
-/* --- WRITE-UP --- */
-
-#shToggle {
-  position: absolute;
-  top: 40px;
-  right: 40px;
-  height: 40px;
-  width: 40px;
-  background-color: #FFFFFF;
-  border-radius: 50%;
-  cursor: pointer;
-  z-index: 10;
-}
-
-#shToggle.ex {
-  -webkit-transform: rotate(225deg);
-  -moz-transform: rotate(225deg);
-  -ms-transform: rotate(225deg);
-  -o-transform: rotate(225deg);
-  transform: rotate(225deg);
-}
-
-#shToggle:before,
-#shToggle:after {
-  content: "";
-  position: absolute;
-  top: 10px;
-  left: 18px;
-  width: 4px;
-  height: 20px;
-  border-radius: 2px;
-  background-color: #D8334A;
-}
-
-#shToggle:after {
-  -webkit-transform: rotate(90deg);
-  -moz-transform: rotate(90deg);
-  -ms-transform: rotate(90deg);
-  -o-transform: rotate(90deg);
-  transform: rotate(90deg);
 }
 
 @media (max-width:1200px) {
