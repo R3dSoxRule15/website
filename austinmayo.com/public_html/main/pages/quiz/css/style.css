@@ -1,0 +1,277 @@
+body {
+  	background-color: #000;
+  	color: #fff;
+	font-family: monospace;
+	width: 95%;
+  	text-align: center;
+	margin: 0 auto;
+	padding: 0px;
+	vertical-align: middle;
+  overflow:hidden;
+}
+
+#main {
+	position: fixed;
+  	top: 50%;
+  	left: 50%;
+  	transform: translate(-50%, -50%);	
+}
+
+#over {
+	text-align: left;
+	margin: 0px;
+	padding: 0px;
+	border: none;
+	z-index: -1;
+	opacity: 0.39;
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	color: #19ff00;
+}
+
+
+
+canvas {
+	margin: 0px;
+	padding: 0px;
+	border: none;
+	z-index: -1;
+	opacity: 1;
+	position:fixed;
+	top:0px;
+	left:0px;
+}
+
+* {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+ul {
+   list-style-type:none;
+   margin: 0 auto;
+   list-style:none;
+   padding:0;
+}
+
+li {
+  list-style:none;
+}
+
+button {
+      width: 220px;
+      font-size: 20px;
+      margin:12px 0;
+      padding: 10px 0;
+      background-color: #A9A9A9;
+      color: #fff;
+      font-family: 'Oswald', sans-serif;
+	  -webkit-border-radius: 1000px;
+      border-radius: 1000px;
+      outline: none;
+      border: none;
+}
+
+button:active {
+      background-color: #353839;
+}
+
+.correctStyle {
+      background-color: #00ff32;
+}
+
+.incorrectStyle {
+      background-color: #ff0019;
+}
+
+img {
+	border-radius: 5px;
+}
+
+.hidden {
+  display: none;
+  visibility: hidden;
+}
+
+/* LIST MENU */
+
+#listmenu
+{
+  text-decoration: none;
+  color: #fff;
+  
+  transition: color 0.3s ease;
+}
+
+#listmenu:hover
+{
+  color: lawngreen;
+}
+
+#menuToggle
+{
+  display: block;
+  position: relative;
+  top: 50px;
+  left: 50px;
+  
+  z-index: 0;
+  
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+#menuToggle input
+{
+  display: block;
+  width: 40px;
+  height: 32px;
+  position: absolute;
+  top: -7px;
+  left: -5px;
+  
+  cursor: pointer;
+  
+  opacity: 0; /* hide this */
+  z-index: 2; /* and place it over the hamburger */
+  
+  -webkit-touch-callout: none;
+}
+#menuToggle span
+{
+  display: block;
+  width: 33px;
+  height: 4px;
+  margin-bottom: 5px;
+  position: relative;
+  
+  background: #cdcdcd;
+  border-radius: 3px;
+  
+  z-index: 1;
+  
+  transform-origin: 3px 0px;
+  
+  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+              background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+              opacity 0.55s ease;
+}
+
+#menuToggle span:first-child
+{
+  transform-origin: 0% 0%;
+}
+
+#menuToggle span:nth-last-child(2)
+{
+  transform-origin: 0% 100%;
+}
+
+/* 
+ * Transform all the slices of hamburger
+ * into a crossmark.
+ */
+#menuToggle input:checked ~ span
+{
+  opacity: 1;
+  transform: rotate(45deg) translate(-2px, -1px);
+  background: #232323;
+}
+
+/*
+ * But let's hide the middle one.
+ */
+#menuToggle input:checked ~ span:nth-last-child(3)
+{
+  opacity: 0;
+  transform: rotate(0deg) scale(0.2, 0.2);
+}
+
+/*
+ * Ohyeah and the last one should go the other direction
+ */
+#menuToggle input:checked ~ span:nth-last-child(2)
+{
+  opacity: 1;
+  transform: rotate(-45deg) translate(0, -1px);
+}
+
+/*
+ * Make this absolute positioned
+ * at the top left of the screen
+ */
+#menu
+{
+  position: left top;
+  width: 300px;
+  margin: -100px 0 0 -50px;
+  padding: 50px;
+  padding-top: 125px;
+  
+  background: transparent;
+  list-style-type: none;
+  -webkit-font-smoothing: antialiased;
+  /* to stop flickering of text in safari */
+  
+  transform-origin: 0% 0%;
+  transform: translate(-100%, 0);
+  
+  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+}
+
+#menu li
+{
+  padding: 10px 0;
+  font-size: 22px;
+}
+
+/*
+ * And let's fade it in from the left
+ */
+#menuToggle input:checked ~ ul
+{
+  transform: scale(1.0, 1.0);
+  opacity: 1;
+}
+
+
+/*
+.typed-cursor{
+  opacity: 1;
+  -webkit-animation: blink 0.95s infinite;
+  -moz-animation: blink 0.95s infinite;
+  -ms-animation: blink 0.95s infinite;
+  -o-animation: blink 0.95s infinite;
+  animation: blink 0.95s infinite;
+}
+
+@-keyframes blink{
+  0% { opacity:1; }
+  50% { opacity:0; }
+  100% { opacity:1; }
+}
+@-webkit-keyframes blink{
+  0% { opacity:1; }
+  50% { opacity:0; }
+  100% { opacity:1; }
+}
+@-moz-keyframes blink{
+  0% { opacity:1; }
+  50% { opacity:0; }
+  100% { opacity:1; }
+}
+@-ms-keyframes blink{
+  0% { opacity:1; }
+  50% { opacity:0; }
+  100% { opacity:1; }
+}
+@-o-keyframes blink{
+  0% { opacity:1; }
+  50% { opacity:0; }
+  100% { opacity:1; }
+}*/

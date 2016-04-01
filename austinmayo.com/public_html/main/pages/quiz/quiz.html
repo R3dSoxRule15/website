@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Quiz</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link type="text/css" rel="stylesheet" href="stylesheet.css"/>
+    <meta name="viewport" content="width=device-width">
+    <link href='http://fonts.googleapis.com/css?family=Oswald:300' rel='stylesheet' type='text/css'>
+  </head>
+      <body ontouchstart="">
+      	<!--onLoad="anim.init()" onResize="anim.resize">
+      	<canvas id="can" width="300" height="300"></canvas>-->
+         <!--<div id="over">
+            <p id="line1" class="hidden">Accessing Main File System....</p>
+          	<p id="line2" class="hidden">Done...</p>
+            <p id="line3" class="hidden">Entering Through Secure Port: 22...</p>
+            <p id="line4" class="hidden">Running SSH Port HiJacker...</p>
+            <p id="line5" class="hidden">Done, Control of Computer Given to Nimda...</p>
+            <p id="line6" class="hidden">sudo su</p>
+            <p id="line7" class="hidden">Password for root: **********************</p>
+            <p id="line8" class="hidden">Incorrect, Try Again.</p>
+            <p id="line9" class="hidden">Password for root: **********************</p>
+            <p id="line10" class="hidden">Root Access Unlocked.</p>
+            <p id="line11" class="hidden">apt-get install kralcyram</p>
+            <p id="line12" class="hidden">Installing...</p>
+          	<p id="line13" class="hidden">[################################] 100.0%</p>
+            <p id="line14" class="hidden">Computer Now Under Control of kralcyram Framework...</p>
+          	<p id="line15" class="hidden">sudo reboot</p>
+            <p id="line16" class="hidden">Exiting...</p>
+            <p id="cursor-line" class="visible">&gt;&gt; <span class="typed-cursor">&#9608;</span></p>
+        </div>-->
+        <div id="mat">
+        	<canvas id="matrix"></canvas>
+				<script type="text/javascript">
+  					var matrix=document.getElementById("matrix");
+  					var context=matrix.getContext("2d");
+ 					matrix.height=window.innerHeight;
+  					matrix.width=window.innerWidth;
+                    //:^) :^) :^) :^) :^) :^)
+					var drop=[];
+					var font_size=16;
+					var columns=matrix.width/font_size;
+					for(var i=0;i<columns;i++)
+						drop[i]=1;
+					
+					function drawMatrix(){
+				  
+					context.fillStyle="rgba(0, 0, 0, 0.1)"; 
+					context.fillRect(0,0,matrix.width,matrix.height);
+				  
+					context.fillStyle="green";
+					context.font=font_size+"px";
+					for(var i=0;i<columns;i++){
+						context.fillText(Math.floor(Math.random()*2),i*font_size,drop[i]*font_size);/*get 0 and 1*/
+				  
+						if(drop[i]*font_size>(matrix.height*2/3)&&Math.random()>0.85)/*reset*/
+							drop[i]=0;
+						drop[i]++;
+					}
+				  }
+					setInterval(drawMatrix,40);
+			</script>
+        </div>
+          <nav role='navigation'>
+              <div id="menuToggle">
+                <input type="checkbox" />
+                <span></span>
+                <span></span>
+                <span></span>
+                <ul id="menu">
+                  <a id="listmenu" href="../../index2.html"><li>Home</li></a>
+                  <a id="listmenu" href="../information/info.html"><li>Information</li></a>
+                  <a id="listmenu" href="../animation/anim.html"><li>Animation</li></a>
+                  <a id="listmenu" href="../quiz/quiz.html"><li>Quiz</li></a>
+                </ul>
+              </div>
+            </nav>
+        <div id="main">
+        	<p>Cyber Security Quiz</p>
+            <h1></h1>
+            <h2></h2>
+            <h3></h3>
+                <div id="try-again-container" style="display:none;"><button id="try-again">Try Again</button></div>
+                <ul>
+                    <li><button class="submit-answer" id="0"></button></li>
+                    <li><button class="submit-answer" id="1"></button></li>
+                    <li><button class="submit-answer" id="2"></button></li>
+                    <li><button class="submit-answer" id="3"></button></li>
+                </ul>
+        
+                <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+                <script language="javascript" src="quiz.js"></script>
+                <script src="js/index.js"></script>
+                <script src="js/typed.js"></script>
+        </div> 
+      </body>
+</html>
